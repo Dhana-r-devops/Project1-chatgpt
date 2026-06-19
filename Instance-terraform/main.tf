@@ -31,8 +31,8 @@ resource "aws_security_group" "Jenkins-sg" {
 
 
 resource "aws_instance" "web" {
-  ami                    = "ami-0f918f7e67a3323f0"  #change your ami value according to your aws instance
-  instance_type          = "t2.large"
+  ami                    = "ami-07f936ee1f9a0de0e"  #change your ami value according to your aws instance
+  instance_type          = "m7i-flex.large"
   key_name               = "chatgpt"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./script.sh", {})
@@ -45,8 +45,8 @@ resource "aws_instance" "web" {
   }
 }
 resource "aws_instance" "web2" {
-  ami                    = "ami-0f918f7e67a3323f0" #change your ami value according to your aws instance 
-  instance_type          = "t2.medium"
+  ami                    = "ami-07f936ee1f9a0de0e" #change your ami value according to your aws instance 
+  instance_type          = "m7i-flex.large"
   key_name               = "chatgpt"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   tags = {
